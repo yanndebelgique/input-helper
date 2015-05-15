@@ -23,7 +23,7 @@
  On input change event the attribute of the document will be modified. In the example the attribute "foo" will
   be modified on the document this of the collection Foobars.
  
-#important! You need to declare an App.collections object and assign the mongo collections your declare client-side. i.e. App.collections.Foobars = new Mongo.collection('foobars').
+###important! You need to declare an App.collections object and assign the mongo collections your declare client-side. i.e. App.collections.Foobars = new Mongo.collection('foobars').
  
  <table>
     <tr>
