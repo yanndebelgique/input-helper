@@ -4,26 +4,33 @@
  time you want to allow the user to  modify a document
  or session variable on the client! use this package.
  
-
+ 
  
  See the examples to see the use cases:
  
-##Case 1: You want to allow the user to modify a string session variable:
+## Case 1: You want to allow the user to modify a string session variable:
  
  ```html
     {{>InputHelper session="hello" class='form-control'}}   
  ```
 
  
-##Case 2: You want to allow the user to modify an attribute on a document:
+## Case 2: You want to allow the user to modify an attribute on a document:
  
  ```
     {{>InputHelper attribute="foo" document=this collection="Foobars" class='form-control'}}
  ```
+
+## Case 3: You want to allow the user to modify an attribute of type date on a document:
+  
+  ```
+     {{>InputHelper attribute="foo" document=this type='date-time' collection="Foobars" class='form-control'}}
+  ```
+
  On input change event the attribute of the document will be modified. In the example the attribute "foo" will
   be modified on the document this of the collection Foobars.
  
-###important! You need to declare an App.collections object and assign the mongo collections your declare client-side. i.e. App.collections.Foobars = new Mongo.collection('foobars').
+### important! You need to declare an App.collections object and assign the mongo collections your declare client-side. i.e. App.collections.Foobars = new Mongo.collection('foobars').
  
  <table>
     <tr>
