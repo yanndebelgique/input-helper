@@ -35,10 +35,18 @@ Template.InputHelper.helpers ({
     var parent_data_context = Template.parentData (),
       collection = parent_data_context && parent_data_context.collection;
 
-    if (collection) {
-      return this[field];
-    } else if (this.session) {
-      return Session.get (this.session);
+    if(collection){
+      var obj = this;
+      // No property requested
+      if (field.indexOf(".") === -1) {
+        return obj[field];
+      }
+      // If a property is request, get descendant property
+      var arr = field.split(".");
+      while(arr.length && (obj = obj[arr.shift()]));
+      return obj;
+    } else if (this.session){
+     return Session.get(this.session);
     }
   },
   selected : function (value) {
@@ -59,5 +67,3 @@ Template.InputHelper.onRendered (function () {
     });
   }
 });
-
-
